@@ -4,26 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Quiz</title>
+    <title>JavaScript Coding Challenge</title>
     <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
 <body>
     <header>
-        <div class ="navbar">
+        <nav class ="navbar">
 
             <div id ="ViewHighScores"> View High Scores</div>
             <div id ="timerDisplay"> Time: </div>
 
-        </div>
+        </nav>
     </header>
-    <div id ="container"> 
-        <h1> Welcome to the JavaScript Coding Challenge</h1>
-        <p> This is a timed quiz on JavaScript fundamentals</p> 
+        <section class ="container"> 
 
-        <button id="start_btn"> Start Quiz </button>
+            <div> 
+                <h1> Welcome to the JavaScript Coding Challenge</h1>
+                <P class = "black_text"> 1. You will have only 60 seconds to complete 5 questions</P>
+                <p class = "black_text"> 2. You can't select any option once time goes off</p> 
+                <p class = "black_text"> 3. You can't exit from the Quiz while you're playing</p>
+                <P class = "black_text"> 4. You'll get points on the basis of your correct answers</P>
 
-       
-    </div>
+                <!-- Start Quiz Button -->
+                <div id = "btn-container">  
+                    <button id = "start_btn" > Start Quiz </button>
+                </div>
+             
+            </div>
+            <div id="Myquestions"></div>
+        </section>
+
     <script src="./assets/js/script.js"></script>
+   
 </body>
+
+
 </html>
