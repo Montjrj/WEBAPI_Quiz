@@ -37,21 +37,40 @@ h1{
 }
 #start_btn {
 
+    display:flex;
+    justify-content: center;
     align-items: center;
     color: #fff;
     background-color: #3e067e;
     border: none;
     border-radius: 15px;
+    width:px;
     box-shadow: 0 9px #999;
     padding: 15px 25px;
-    font-size: 20px; 
+    font-size: 15px; 
 
+    
 }
- 
-button:hover {background-color: #9c5fe2}
 
-button:active {
+.button:hover {background-color: #9c5fe2} 
+
+.button:active {
   background-color: #3e067e;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
+}
+
+#question_text {
+
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background-color: #3e067e;
+    border: none;
+    border-radius: 15px;
+    width:px;
+    box-shadow: 0 9px #999;
+    padding: 15px 25px;
+    font-size: 15px; 
 }
