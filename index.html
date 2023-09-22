@@ -8,34 +8,44 @@
 </head>
 <body>
     <header>
-        <nav class ="navbar">
-
-            <div id ="ViewHighScores"> View High Scores</div>
-            <div id ="timerDisplay"> Time: </div>
-
+        <nav class="navbar">
+            <button class= "button" id="viewHighScores" >View High Scores</button>
+            <div id="timerDisplay"> Time: </div>
         </nav>
     </header>
-        <section class ="container"> 
-
-            <div> 
+    <center>
+        <section class="container">
+            <div id="quiz-container">
                 <h1> Welcome to the JavaScript Coding Challenge</h1>
-                <P class = "black_text"> 1. You will have only 60 seconds to complete 5 questions</P>
-                <p class = "black_text"> 2. You can't select any option once time goes off</p> 
-                <p class = "black_text"> 3. You can't exit from the Quiz while you're playing</p>
-                <P class = "black_text"> 4. You'll get points on the basis of your correct answers</P>
-
-                <!-- Start Quiz Button -->
-                <div id = "btn-container">  
-                    <button  id = "start_btn" > Start Quiz </button>
+                <p class="black_text"> 1. You will have only 60 seconds to complete 5 questions</p>
+                <p class="black_text"> 2. You can't select any option once time goes off</p>
+                <p class="black_text"> 3. You can't exit from the Quiz while you're playing</p>
+                <p class="black_text"> 4. You'll get points on the basis of your correct answers</p>
+                <div id="btn-container">
+                    <button class="button" id = "start_btn"> Start Quiz </button>
                 </div>
-             
             </div>
-            <div id="myquestions"></div> 
+            <div id="question-container">
+                <div id="myquestions"></div>
+                <div id="choices-container"></div>
+                <div id="result"></div>
+            </div>
+            <div id="end-quiz-container">
+                <h2>Your final score is <span id="final-score"></span></h2>
+                <input type="text" id="initials" placeholder="Enter Initials:">
+                <button class= "button" id="submit-score">Submit</button>
+            </div>
+            <div id="highscore-container">
+                <h2>HighScores</h2>
+                <ul id="highscore-list"></ul>
+                <button class= "button" id="go-back">Go Back</button>
+                <button class= "button" id="clear-highscores">Clear Highscores</button>
+            </div>
         </section>
-
-    <script src="./assets/js/script.js"></script>
-   
+    </center>
+    <script src="./assets/js/script.js">
+    </script>
 </body>
-
-
 </html>
+
+

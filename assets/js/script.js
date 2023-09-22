@@ -14,12 +14,24 @@ var timerEl = document.getElementById("timerDisplay");
         var goBackBtn = document.getElementById("go-back");
         var clearHighscoresBtn = document.getElementById("clear-highscores");
         var viewHighScores = document.getElementById("viewHighScores");
+        var startquizbutton = document.getElementById("start_btn")
+
 
         var currentIndex = 0;
         var timeLeft = 60; // Initialize timeLeft to 60 seconds
         var score = 0;
         var highScores = [];
         var timeInterval;
+
+        startquizbutton.addEventListener("click",startquiz)
+        
+        function startquiz() {
+
+            startGame(); 
+            countdown (); 
+
+        };
+
 
         var myQuestions = [
             {
@@ -54,6 +66,7 @@ var timerEl = document.getElementById("timerDisplay");
             }
         ];
 
+
         function startGame() {
             currentIndex = 0;
             score = 0;
@@ -65,7 +78,8 @@ var timerEl = document.getElementById("timerDisplay");
             highscoreContainer.style.display="none";
             countdown();
             displayQuestion();
-        };
+        }
+
 
         function countdown() {
                 timeInterval = setInterval(function () {
@@ -83,15 +97,18 @@ var timerEl = document.getElementById("timerDisplay");
             }, 1000);
         }
 
+
         function displayQuestion() {
             if (currentIndex < myQuestions.length) {
                 var questionData = myQuestions[currentIndex];
                 questionEl.textContent = questionData.question;
                 choicesEl.innerHTML = '';
 
+
                 for (let i = 0; i < questionData.choices.length; i++) {
                     var choiceBtn = document.createElement("button");
                     choiceBtn.textContent = questionData.choices[i];
+                    choiceBtn.classList.add("button")
                     choiceBtn.addEventListener("click", function () {
                         checkAnswer(questionData.choices[i], questionData.answer);
                     });
@@ -102,6 +119,7 @@ var timerEl = document.getElementById("timerDisplay");
                 endQuiz();
             }
         }
+
 
         function checkAnswer(selectedChoice, correctAnswer) {
             if (selectedChoice === correctAnswer) {
@@ -118,6 +136,10 @@ var timerEl = document.getElementById("timerDisplay");
             }, 1000);
         }
 
+
+        //viewHighScores.addEventListener("click", endQuiz())
+
+
         function endQuiz() {
             clearInterval(timeInterval);
             timerEl.textContent = 'Quiz Ended!';
@@ -126,10 +148,13 @@ var timerEl = document.getElementById("timerDisplay");
             questionContainer.style.display="none";
             finalScoreEl.textContent = score;
             endQuizContainer.style.display="block";
+             
         }
+
 
         function saveHighScore() {
             var initials = initialsInput.value.trim();
+            highScores = JSON.parse(localStorage.getItem("highScores")) || [];
             if (initials !== "") {
                 var highscore = { initials: initials, score: score };
                 highScores.push(highscore);
@@ -143,6 +168,7 @@ var timerEl = document.getElementById("timerDisplay");
             }
         }
 
+
         function showHighScores() {
             highScores = JSON.parse(localStorage.getItem("highScores")) || [];
             highscoreList.innerHTML = "";
@@ -153,10 +179,12 @@ var timerEl = document.getElementById("timerDisplay");
             }
         }
 
+
         function clearHighScores() {
             localStorage.removeItem("highScores");
             highscoreList.innerHTML = "";
         }
+
 
         function goBack() {
             quizContainer.classList.remove("hidden");
@@ -165,6 +193,7 @@ var timerEl = document.getElementById("timerDisplay");
             highscoreContainer.classList.add("hidden");
             initialsInput.value = "";
         }
+
 
         viewHighScores.addEventListener("click", function () {
             quizContainer.classList.add("hidden");
@@ -177,6 +206,8 @@ var timerEl = document.getElementById("timerDisplay");
         goBackBtn.addEventListener("click", goBack);
         clearHighscoresBtn.addEventListener("click", clearHighScores);
 
-        var start_btn = document.getElementById('start_btn');
-        start_btn.addEventListener('click', startGame);
+
+        // var start_btn = document.getElementById('start_btn');
+        // start_btn.addEventListener('click', startGame);
+
 
